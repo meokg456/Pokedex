@@ -11,6 +11,122 @@ class MainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
+List<Color> typeColor(String type) {
+  Color textColor;
+  Color backgroundColor;
+  switch (type) {
+    case 'grass':
+      {
+        textColor = Colors.black;
+        backgroundColor = Colors.green[400];
+      }
+      break;
+    case 'poison':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.purple;
+      }
+      break;
+    case 'bug':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.green[800];
+      }
+      break;
+    case 'psychic':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.pink[400];
+      }
+      break;
+    case 'flying':
+      {
+        textColor = Colors.black;
+        backgroundColor = Colors.blue[300];
+      }
+      break;
+    case 'water':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.blue[600];
+      }
+      break;
+    case 'dark':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.grey[800];
+      }
+      break;
+    case 'fighting':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.deepOrange[800];
+      }
+      break;
+    case 'rock':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.lime[900];
+      }
+      break;
+    case 'ground':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.brown;
+      }
+      break;
+    case 'ice':
+      {
+        textColor = Colors.black;
+        backgroundColor = Colors.blue[100];
+      }
+      break;
+    case 'fairy':
+      {
+        textColor = Colors.black;
+        backgroundColor = Colors.pink[100];
+      }
+      break;
+    case 'ghost':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.deepPurple[600];
+      }
+      break;
+    case 'steel':
+      {
+        textColor = Colors.black;
+        backgroundColor = Colors.grey;
+      }
+      break;
+    case 'fire':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.orange[800];
+      }
+      break;
+    case 'normal':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.grey[600];
+      }
+      break;
+    case 'electric':
+      {
+        textColor = Colors.black;
+        backgroundColor = Colors.yellow;
+      }
+      break;
+    case 'dragon':
+      {
+        textColor = Colors.white;
+        backgroundColor = Colors.deepPurpleAccent[400];
+      }
+      break;
+  }
+  return [textColor, backgroundColor];
+}
+
 class _MainScreenState extends State<MainScreen> {
   List<Generation> gens = <Generation>[
     Generation(pokemons: List<Pokemon>(), start: 0, end: 150),
@@ -54,170 +170,96 @@ class _MainScreenState extends State<MainScreen> {
         centerTitle: true,
       ),
       body: GridView.count(
-        childAspectRatio: 0.70,
+        childAspectRatio: 0.68,
         crossAxisCount: 2,
         children: gens[_index]
             .pokemons
-            .map((pokemon) => Card(
-                  margin: EdgeInsets.all(3),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Image.network(
-                        pokemon.image,
-                        height: 180,
-                        width: 180,
-                      ),
-                      Text(
-                        pokemon.name,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            fontFamily: 'Poke Solid',
-                            color: Colors.grey[800]),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: pokemon.types.map((type) {
-                            Color textColor;
-                            Color backgroundColor;
-                            switch (type) {
-                              case 'grass':
-                                {
-                                  textColor = Colors.black;
-                                  backgroundColor = Colors.green[400];
-                                }
-                                break;
-                              case 'poison':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.purple;
-                                }
-                                break;
-                              case 'bug':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.green[800];
-                                }
-                                break;
-                              case 'psychic':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.pink[400];
-                                }
-                                break;
-                              case 'flying':
-                                {
-                                  textColor = Colors.black;
-                                  backgroundColor = Colors.blue[300];
-                                }
-                                break;
-                              case 'water':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.blue[600];
-                                }
-                                break;
-                              case 'dark':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.grey[800];
-                                }
-                                break;
-                              case 'fighting':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.deepOrange[800];
-                                }
-                                break;
-                              case 'rock':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.lime[900];
-                                }
-                                break;
-                              case 'ground':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.brown;
-                                }
-                                break;
-                              case 'ice':
-                                {
-                                  textColor = Colors.black;
-                                  backgroundColor = Colors.blue[100];
-                                }
-                                break;
-                              case 'fairy':
-                                {
-                                  textColor = Colors.black;
-                                  backgroundColor = Colors.pink[100];
-                                }
-                                break;
-                              case 'ghost':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.deepPurple[600];
-                                }
-                                break;
-                              case 'steel':
-                                {
-                                  textColor = Colors.black;
-                                  backgroundColor = Colors.grey;
-                                }
-                                break;
-                              case 'fire':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.orange[800];
-                                }
-                                break;
-                              case 'normal':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor = Colors.grey[600];
-                                }
-                                break;
-                              case 'electric':
-                                {
-                                  textColor = Colors.black;
-                                  backgroundColor = Colors.yellow;
-                                }
-                                break;
-                              case 'dragon':
-                                {
-                                  textColor = Colors.white;
-                                  backgroundColor =
-                                      Colors.deepPurpleAccent[400];
-                                }
-                                break;
-                            }
-                            return Container(
-                              alignment: Alignment.center,
-                              height: 30,
-                              width: 85,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: backgroundColor),
-                              child: Text(
-                                type[0].toUpperCase() + type.substring(1),
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontFamily: 'Poke Solid',
-                                    color: textColor),
-                              ),
-                            );
-                          }).toList())
-                    ],
+            .map(
+              (pokemon) => InkWell(
+                onTap: () {
+                  List<Pokemon> evolutions = <Pokemon>[pokemon];
+                  for (int i = 0; i < pokemon.evolutions.length; i++) {
+                    if (pokemon.id != pokemon.evolutions[i].id) {
+                      int genIndex;
+                      int id;
+                      if (pokemon.evolutions[i].id <= 151) {
+                        genIndex = 0;
+                        id = pokemon.evolutions[i].id;
+                      } else if (pokemon.evolutions[i].id <= 251) {
+                        genIndex = 1;
+                        id = pokemon.evolutions[i].id - 151;
+                      } else if (pokemon.evolutions[i].id <= 386) {
+                        genIndex = 2;
+                        id = pokemon.evolutions[i].id - 251;
+                      } else if (pokemon.evolutions[i].id <= 493) {
+                        genIndex = 3;
+                        id = pokemon.evolutions[i].id - 386;
+                      } else if (pokemon.evolutions[i].id <= 648) {
+                        genIndex = 4;
+                        id = pokemon.evolutions[i].id - 493;
+                      } else {
+                        genIndex = 5;
+                        id = pokemon.evolutions[i].id - 648;
+                      }
+                      evolutions.add(gens[genIndex].pokemons[id - 1]);
+                    }
+                  }
+                  Navigator.pushNamed(context, '/detail',
+                      arguments: evolutions);
+                },
+                child: Hero(
+                  tag: pokemon.image,
+                  child: Card(
+                    margin: EdgeInsets.all(3),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Image.network(
+                          pokemon.image,
+                          height: 180,
+                          width: 180,
+                        ),
+                        Text(
+                          pokemon.name,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              fontFamily: 'Poke Solid',
+                              color: Colors.grey[800]),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: pokemon.types.map((type) {
+                              var colors = typeColor(type);
+                              return Container(
+                                alignment: Alignment.center,
+                                height: 30,
+                                width: 85,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    color: colors[1]),
+                                child: Text(
+                                  type[0].toUpperCase() + type.substring(1),
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontFamily: 'Poke Solid',
+                                      color: colors[0]),
+                                ),
+                              );
+                            }).toList())
+                      ],
+                    ),
                   ),
-                ))
+                ),
+              ),
+            )
             .toList(),
       ),
       drawer: Drawer(

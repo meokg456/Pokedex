@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/main_screen.dart';
+import 'package:pokedex/pokemon_detail.dart';
 import 'package:pokedex/splash_screen.dart';
 
 void main() {
@@ -20,7 +21,8 @@ class Pokedex extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => SplashScreen(),
-        '/main': (context) => MainScreen()
+        '/main': (context) => MainScreen(),
+        '/detail': (context) => PokemonDetail()
       },
     );
   }
