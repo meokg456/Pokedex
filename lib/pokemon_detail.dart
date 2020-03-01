@@ -37,7 +37,7 @@ class PokemonDetail extends StatelessWidget {
                   ),
                   Text(
                     pokemons[0].description,
-                    textAlign: TextAlign.justify,
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 13),
                   ),
                   SizedBox(
@@ -103,9 +103,11 @@ class PokemonDetail extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
+                  Container(
+                    alignment: Alignment.center,
                     height: 200,
                     child: ListView(
+                        shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         children: pokemons.map((pokemon) {
                           if (pokemon == pokemons[0]) return Container();
@@ -154,8 +156,8 @@ class PokemonDetail extends StatelessWidget {
             child: Hero(
               tag: pokemons[0].image,
               child: Container(
-                height: 200,
-                width: 200,
+                height: 180,
+                width: 180,
                 child: Image.network(pokemons[0].image),
               ),
             ),

@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/main_screen.dart';
 import 'package:pokedex/pokemon_detail.dart';
 import 'package:pokedex/splash_screen.dart';
 
 void main() {
+  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   runApp(Pokedex());
 }
 

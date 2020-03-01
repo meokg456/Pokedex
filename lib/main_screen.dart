@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'pokemon.dart';
@@ -170,8 +172,10 @@ class _MainScreenState extends State<MainScreen> {
         centerTitle: true,
       ),
       body: GridView.count(
-        childAspectRatio: 0.68,
-        crossAxisCount: 2,
+        shrinkWrap: true,
+        childAspectRatio: 0.7,
+        crossAxisCount:
+            Platform.isWindows ? MediaQuery.of(context).size.width ~/ 200 : 2,
         children: gens[_index]
             .pokemons
             .map(
@@ -211,50 +215,56 @@ class _MainScreenState extends State<MainScreen> {
                   tag: pokemon.image,
                   child: Card(
                     margin: EdgeInsets.all(3),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Image.network(
-                          pokemon.image,
-                          height: 180,
-                          width: 180,
-                        ),
-                        Text(
-                          pokemon.name,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              fontFamily: 'Poke Solid',
-                              color: Colors.grey[800]),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: pokemon.types.map((type) {
-                              var colors = typeColor(type);
-                              return Container(
-                                alignment: Alignment.center,
-                                height: 30,
-                                width: 85,
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                    color: colors[1]),
-                                child: Text(
-                                  type[0].toUpperCase() + type.substring(1),
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Poke Solid',
-                                      color: colors[0]),
-                                ),
-                              );
-                            }).toList())
-                      ],
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            height: 150,
+                            width: 150,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image: NetworkImage(pokemon.image))),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            pokemon.name,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poke Solid',
+                                color: Colors.grey[800]),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: pokemon.types.map((type) {
+                                var colors = typeColor(type);
+                                return Container(
+                                  alignment: Alignment.center,
+                                  margin: EdgeInsets.symmetric(horizontal: 5),
+                                  height: 30,
+                                  width: 85,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      color: colors[1]),
+                                  child: Text(
+                                    type[0].toUpperCase() + type.substring(1),
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Poke Solid',
+                                        color: colors[0]),
+                                  ),
+                                );
+                              }).toList()),
+                        ],
+                      ),
                     ),
                   ),
                 ),
