@@ -15,12 +15,12 @@ const RESOURCES = {
 "/assets/images/sinnoh.png": "ae6d538fc3176b24c1f221ccedcf3a28",
 "/assets/images/unova.png": "cabf06ced2e9c06d531edb1db61aed44",
 "/assets/LICENSE": "8383d6bfd2695facc0a24f83901b1d89",
-"/favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "/icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "/icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"/index.html": "d0248dccd99dff9cb61ec786c72828d7",
+"/index.html": "0938aff7c80c1bd3a6309fd684d54951",
 "/main.dart.js": "19d0451573416af78eb61a1dea6901ea",
-"/manifest.json": "2038593c0fc25efb758a8d10205c1f9a"
+"/manifest.json": "fe81f155b8c66222b7c5008e685d0a2a",
+"/pokemon.png": "ce559c0c21410a5bb97508801fbff68c"
 };
 
 self.addEventListener('activate', function (event) {
