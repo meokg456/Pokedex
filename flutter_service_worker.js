@@ -15,7 +15,7 @@ const RESOURCES = {
 "/assets/images/kanto.png": "685773ad18a4e14f24f773fce6580305",
 "/assets/images/sinnoh.png": "ae6d538fc3176b24c1f221ccedcf3a28",
 "/assets/images/unova.png": "cabf06ced2e9c06d531edb1db61aed44",
-"/assets/LICENSE": "964211db6a8b173b1744e68da77ce459",
+"/assets/LICENSE": "5e512ee7f360135e935c6d67cbd577bb",
 "/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "/favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "/icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
