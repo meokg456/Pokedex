@@ -174,8 +174,7 @@ class _MainScreenState extends State<MainScreen> {
       body: GridView.count(
         shrinkWrap: true,
         childAspectRatio: 0.7,
-        crossAxisCount:
-            Platform.isWindows ? MediaQuery.of(context).size.width ~/ 200 : 2,
+        crossAxisCount: MediaQuery.of(context).size.width ~/ 200,
         children: gens[_index]
             .pokemons
             .map(
